@@ -1,0 +1,126 @@
+:root {
+  /* Paleta Dark Neofuturista (Azul / Violeta Profundo) */
+  --cor-fundo-1: #0d0e15;
+  --cor-fundo-2: #161824;
+  --cor-fundo-3: #1f2235;
+  
+  --cor-principal: rgba(255, 255, 255, 0.05);
+  --cor-secundaria: rgba(255, 255, 255, 0.08);
+  
+  --cor-destaque: #6366f1;         /* Indigo vibrante */
+  --cor-destaque-escuro: #4f46e5;  /* Indigo profundo */
+  --cor-destaque-brilho: #818cf8;  /* Brilho suave */
+  
+  --cor-texto: #f3f4f6;            /* Branco suave */
+  --cor-texto-suave: #9ca3af;      /* Cinza claro */
+  --cor-borda: rgba(255, 255, 255, 0.12);
+  --cor-borda-hover: rgba(99, 102, 241, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, var(--cor-fundo-3), transparent 60%),
+              radial-gradient(circle at bottom right, #2e1065, transparent 60%),
+              var(--cor-fundo-1);
+  color: var(--cor-texto);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 16px;
+}
+
+.caixa-principal {
+  width: min(900px, 100%);
+  background: rgba(22, 24, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cor-borda);
+  border-radius: 24px;
+  text-align: center;
+  padding: 40px 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(99, 102, 241, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+h1 {
+  color: var(--cor-texto);
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--cor-destaque-brilho) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.caixa-alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.caixa-alternativas button {
+  background: var(--cor-secundaria);
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+  color: var(--cor-texto);
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 16px 20px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+/* Estado de foco para acessibilidade via teclado */
+.caixa-alternativas button:focus-visible {
+  outline: 2px solid var(--cor-destaque-brilho);
+  outline-offset: 3px;
+}
+
+/* Efeito ao passar o mouse */
+.caixa-alternativas button:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: var(--cor-borda-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* Efeito ao clicar */
+.caixa-alternativas button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estado desabilitado */
+.caixa-alternativas button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.caixa-resultado {
+  margin-top: 32px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.texto-resultado {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
